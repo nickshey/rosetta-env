@@ -15,7 +15,22 @@ docker build -t rosetta .
 docker run -t rosetta
 ```
 
-## Train ResNet50
+## Train ResNet101
 ```
 docker-compose up -f docker-compose-train.yaml
+```
+
+## Build and Train
+```
+docker build -t rosetta .; docker-compose -f docker-compose-train.yaml up
+```
+
+## Build Plaintext Testing Image and Run
+```
+docker build -f Dockerfile2 . -t rosetta:0.1; docker-compose -f docker-compose-plain-predict.yaml up
+```
+
+## Build ZK Testing Image and Run
+```
+docker build -f Dockerfile2 . -t rosetta:0.1; docker-compose -f docker-compose-zk-predict.yaml up
 ```
